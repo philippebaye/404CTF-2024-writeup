@@ -46,9 +46,9 @@ $$
 \begin{pmatrix} 1 & 0 \\\ 0 & e^{i\gamma} \end{pmatrix}
 \cdot
 \begin{pmatrix} cos(\frac{\beta}{2}) & i \cdot sin(\frac{\beta}{2}) \\\ i \cdot sin(\frac{\beta}{2}) & cos(\frac{\beta}{2}) \end{pmatrix}
-\cdot \begin{pmatrix} 1 \\ 0 \end{pmatrix}
-=
-\begin{pmatrix} \frac{\sqrt{3}}{2} \\\ \frac{\sqrt{3}}{4} - \frac{i}{4} \end{pmatrix}
+\cdot 
+\begin{pmatrix} 1 \\ 0 \end{pmatrix} 
+= \begin{pmatrix} \frac{\sqrt{3}}{2} \\\ \frac{\sqrt{3}}{4} - \frac{i}{4} \end{pmatrix}
 $$
 
 soit :
@@ -57,13 +57,12 @@ $$
 \begin{pmatrix} 1 & 0 \\\ 0 & e^{i\gamma} \end{pmatrix}
 \cdot
 \begin{pmatrix} cos(\frac{\beta}{2}) \\\ i \cdot sin(\frac{\beta}{2}) \end{pmatrix}
-=
-\begin{pmatrix} \frac{\sqrt{3}}{2} \\\ \frac{\sqrt{3}}{4} - \frac{i}{4} \end{pmatrix}
+= \begin{pmatrix} \frac{\sqrt{3}}{2} \\\ \frac{\sqrt{3}}{4} - \frac{i}{4} \end{pmatrix}
 $$
 
 $$
 \Rightarrow
-\left\{
+\left\lbrace
     \begin{array}{ll}
         cos(\frac{\beta}{2}) = \frac{\sqrt{3}}{2}
         \\\
@@ -73,20 +72,17 @@ $$
 $$
 
 La première équation donne :
+
 $$
-\beta
-=
-2 \cdot Arccos(\frac{\sqrt{3}}{2})
+\beta = 2 \cdot Arccos(\frac{\sqrt{3}}{2})
 $$
 
 En prenant $\frac{\pi}{6}$ comme valeur de $Arccos(\frac{\sqrt{3}}{2})$, on obtient :
+
 $$
 \beta
-=
-2 \cdot \frac{\pi}{6}
-=
-\frac{\pi}{3}
-
+= 2 \cdot \frac{\pi}{6}
+= \frac{\pi}{3}
 \Rightarrow sin(\frac{\beta}{2}) = \frac{1}{2}
 $$
 
@@ -94,30 +90,28 @@ Ainsi :
 
 $$
 e^{i^\gamma} \cdot i \cdot sin(\frac{\beta}{2})
-=
-(cos(\gamma) + i \cdot sin(\gamma)) \cdot i \cdot \frac{1}{2}
-=
-- \frac{1}{2} \cdot sin(\gamma) + \frac{i}{2} \cdot cos(\gamma)
+= (cos(\gamma) + i \cdot sin(\gamma)) \cdot i \cdot \frac{1}{2}
+= - \frac{1}{2} \cdot sin(\gamma) + \frac{i}{2} \cdot cos(\gamma)
 $$
 
 La deuxième équation devient alors :
+
 $$
-- \frac{1}{2} \cdot sin(\gamma) + \frac{i}{2} \cdot cos(\gamma)
-=
-\frac{\sqrt{3}}{4} - \frac{i}{4}
+-\frac{1}{2} \cdot sin(\gamma) + \frac{i}{2} \cdot cos(\gamma)
+= \frac{\sqrt{3}}{4} - \frac{i}{4}
 $$
 
 donc :
+
 $$
-\left\{
+\left.
     \begin{array}{ll}
         sin(\gamma) = - \frac{\sqrt{3}}{2}
         \\\
         cos(\gamma) = - \frac{1}{2}
     \end{array}
-\right\}
-\Rightarrow
-\gamma = - \frac{2 \cdot \pi}{3}
+\right\rbrace
+\Rightarrow \gamma = - \frac{2 \cdot \pi}{3}
 $$
 
 on utilise donc :
@@ -134,16 +128,19 @@ gamma = -2*np.pi/3
 Cette ultime étape vise à se familiariser avec la sphère de Bloch, en manipulant les rotations suivant les 3 axes $X$, $Y$ et $Z$.
 
 A partir du point de départ :
+
 $$
 |\phi_{start}\rangle = \frac{\sqrt{2+\sqrt{2}}}{2} |0\rangle + \frac{\sqrt{2-\sqrt{2}}}{2} e^{-i\frac{\pi}{4}} |1\rangle
 $$
 
 et suivant une rotation sur $Z$, puis $Y$, il faut atteindre le point d'étape :
+
 $$
 |\phi_{step}\rangle = |-\rangle
 $$
 
 ensuite, suivant une rotation sur $Y$, puis $Z$, atteindre le point d'arrivée :
+
 $$
 |\phi_{finish}\rangle = \frac{\sqrt{2-\sqrt{2}}}{2} |0\rangle + \frac{\sqrt{2+\sqrt{2}}}{2} e^{i\frac{\pi}{4}} |1\rangle
 $$
