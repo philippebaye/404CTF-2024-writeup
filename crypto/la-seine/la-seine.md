@@ -60,9 +60,9 @@ Soit $\phi(p)$ l'indicatrice d'Euler en `p`. Comme `p` est premier : $\phi(p) = 
 Si $n$ et $\phi(p)$ sont premiers entre eux, alors (d'après le théorême de Bachet-Bezout) :
 
 $$
-\exist m, n \cdot m \equiv 1 \pmod{\phi(p)}
+\exists m, n \cdot m \equiv 1 \pmod{\phi(p)}
 \Rightarrow
-\exist u, n \cdot m = 1 + u \cdot \phi(p)
+\exists u, n \cdot m = 1 + u \cdot \phi(p)
 $$
 
 $m$ permet alors de trouver $A$, grâce au petit théorême de Fermat :
@@ -98,12 +98,12 @@ Le bon `n` devant donner un message intelligible.
 Malheureusement la signature du flag a été réalisée avec un `k` impair que l'on peut noter $2 \cdot n + 1$.
 
 En utilisant les différentes relations de récurrence, on obtient :
-- $ x_{2n+1} \equiv A^{n} \cdot (a \cdot x_{0} + b \cdot y_{0}) \pmod{p} $
-- $ y_{2n+1} \equiv A^{n} \cdot (b \cdot x_{0} - a \cdot y_{0}) \pmod{p} $
+- $x_{2n+1} \equiv A^{n} \cdot (a \cdot x_{0} + b \cdot y_{0}) \pmod{p}$
+- $y_{2n+1} \equiv A^{n} \cdot (b \cdot x_{0} - a \cdot y_{0}) \pmod{p}$
 
 En résolvant le système pour les inconnues $x_{0}$ et $y_{0}$ ont obtient alors :
-- $ x_{0} \equiv A^{-1} \cdot (A^{n})^{-1} \cdot (a \cdot x_{2n+1} + b \cdot y_{2n+1}) \pmod{p} $
-- $ y_{0} \equiv A^{-1} \cdot (A^{n})^{-1} \cdot (b \cdot x_{2n+1} - a \cdot y_{2n+1}) \pmod{p} $
+- $x_{0} \equiv A^{-1} \cdot (A^{n})^{-1} \cdot (a \cdot x_{2n+1} + b \cdot y_{2n+1}) \pmod{p}$
+- $y_{0} \equiv A^{-1} \cdot (A^{n})^{-1} \cdot (b \cdot x_{2n+1} - a \cdot y_{2n+1}) \pmod{p}$
 
 La connaissance de $A$ n'est donc pas suffisante, et il est nécessaire de retrouver $a$ et $b$.
 
@@ -116,7 +116,7 @@ Le [Théorême des 2 carrés de Fermat](https://fr.wikipedia.org/wiki/Th%C3%A9or
 $$
 p \equiv 1 \pmod{4}
 \Rightarrow
-\exist (u,v), u^2 + v^2 = p
+\exists (u,v), u^2 + v^2 = p
 $$
 
 L'[identité de Diophante / Brahmagupta](https://fr.wikipedia.org/wiki/Identit%C3%A9_de_Brahmagupta) permet de transformer le produit de 2 sommes de 2 carrés, en 1 somme de 2 carrés :
@@ -129,12 +129,14 @@ $$
 Si on applique cette identité au produit de 2 nombres premiers $p$ et $q$ décomposables chacun en somme de 2 carrés, on est capable d'en exprimer le produit en somme de 2 carrés :
 
 $$
+\begin{array}{ll}
 p = u^2 + v^2
 \\
 q = x^2 + y^2
 \\
 \Rightarrow
 p \cdot q = (u^2 + v^2) \cdot (x^2 + y^2) = (ux - vy)^2 + (uy + vx)^2
+\end{array}
 $$
 
 
