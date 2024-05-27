@@ -19,7 +19,12 @@ Le chiffrement consiste à :
 - à multiplier ce bit par l'entier de la clé publique positionné au même index
 - et pour finir à en faire la somme
 
-On a donc : $encrypted = \sum_{i=0}^{255} m_{i} \cdot b_{i}$ avec $m_{i} \in \lbrace 0, 1 \rbrace$
+On a donc : 
+
+$$
+encrypted = \sum_{i=0}^{255} m_{i} \cdot b_{i}
+\ avec \ m_{i} \in \lbrace 0, 1 \rbrace
+$$
 
 Comme on connait les $b_{i}$, le challenge revient à retrouver les $m_{i}$ à partir de `encrypted` et `public_key`.
 
@@ -36,6 +41,7 @@ Bien que la clé publique utilisée pour le chiffrement soit différente à chaq
 Par conséquent, si on capte 256 jeux de données différents (i.e. par exemple pour lesquels les $b_{0}$ sont tous différents 2 à 2), on est alors capable de se ramener à la résolution d'un système composé de 256 équations linéaires dont les inconnues sont les 256 $m_{i}$ :
 
 $$
+\begin{array}{ll}
 b_{0,0} \cdot m_{0} + b_{1,0} \cdot m_{1} + \ldots + b_{255,0} \cdot m_{255} = encrypted_{0}
 \\
 b_{0,1} \cdot m_{0} + b_{1,1} \cdot m_{1} + \ldots + b_{255,1} \cdot m_{255} = encrypted_{1}
@@ -47,6 +53,7 @@ b_{0,j} \cdot m_{0} + b_{1,j} \cdot m_{1} + \ldots + b_{255,j} \cdot m_{255} = e
 \ldots
 \\
 b_{0,255} \cdot m_{0} + b_{1,255} \cdot m_{1} + \ldots + b_{255,255} \cdot m_{255} = encrypted_{255}
+\end{array}
 $$
 
 que l'on peut aussi représenter sous forme matricielle :
@@ -67,10 +74,10 @@ b_{0,255} & b_{1,255} & \ldots & b_{255,255}
 \end{pmatrix}
 \cdot
 \begin{pmatrix}
-m_{0} \\ m_{1} \\ \ldots \\ m_{j} \\ \ldots \\ m_{255}
+m_{0} \\\ m_{1} \\\ \ldots \\\ m_{j} \\\ \ldots \\\ m_{255}
 \end{pmatrix}
 = \begin{pmatrix}
-encrypted_{0} \\ encrypted_{1} \\ \ldots \\ encrypted_{j} \\ \ldots \\ encrypted_{255}
+encrypted_{0} \\\ encrypted_{1} \\\ \ldots \\\ encrypted_{j} \\\ \ldots \\\ encrypted_{255}
 \end{pmatrix}
 $$
 
@@ -85,31 +92,31 @@ Après expérimentation avec [Sage](https://www.sagemath.org/) sur des matrices 
 Afin de manipuler des nombres de taille raisonnable, pour chaque équation, on va appliquer $encrypted$ comme diviseur. Comme celui-ci est par construction un majorant des $b_{i}$ on a :
 
 $$
-\forall i, b'_{i} = \frac{b_{i}}{encrypted} \Rightarrow 0 \lt b'_{i} \lt 1
+\forall i, b_{i}^{\prime} = \frac{b_{i}}{encrypted} \Rightarrow 0 \lt b_{i}^{\prime} \lt 1
 $$
 
 Le système à résoudre devient alors :
 
 $$
 \begin{pmatrix}
-b'_{0,0} & b'_{1,0} & \ldots & b'_{255,0}
+b_{0,0}^{\prime} & b_{1,0}^{\prime} & \ldots & b_{255,0}^{\prime}
 \\
-b'_{0,1} & b'_{1,1} & \ldots & b'_{255,1}
-\\
-\ldots & \ldots & \ldots & \ldots
-\\
-b'_{0,j} & b'_{1,j} & \ldots & b'_{255,j}
+b_{0,1}^{\prime} & b_{1,1}^{\prime} & \ldots & b_{255,1}^{\prime}
 \\
 \ldots & \ldots & \ldots & \ldots
 \\
-b'_{0,255} & b'_{1,255} & \ldots & b'_{255,255}
+b_{0,j}^{\prime} & b_{1,j}^{\prime} & \ldots & b_{255,j}^{\prime}
+\\
+\ldots & \ldots & \ldots & \ldots
+\\
+b_{0,255}^{\prime} & b_{1,255}^{\prime} & \ldots & b_{255,255}^{\prime}
 \end{pmatrix}
 \cdot
 \begin{pmatrix}
-m_{0} \\ m_{1} \\ \ldots \\ m_{j} \\ \ldots \\ m_{255}
+m_{0} \\\ m_{1} \\\ \ldots \\\ m_{j} \\\ \ldots \\\ m_{255}
 \end{pmatrix}
 = \begin{pmatrix}
-1 \\ 1 \\ \ldots \\ 1 \\ \ldots \\ 1
+1 \\\ 1 \\\ \ldots \\\ 1 \\\ \ldots \\\ 1
 \end{pmatrix}
 $$
 
