@@ -22,9 +22,7 @@ $$
         a \cdot 52 + b \equiv 56 \pmod n
     \end{array}
 \right\rbrace
-
 \Rightarrow
-
 (a, b) = (19, 6)
 $$
 
